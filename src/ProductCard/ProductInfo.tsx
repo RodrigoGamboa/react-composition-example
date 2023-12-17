@@ -1,19 +1,11 @@
+import { ReactNode } from "react";
+
 export type ProductInfoProps = {
-  title: string;
-  category: string;
-  stars: number;
-  price: number;
+  children?: ReactNode;
 };
 
-function ProductInfo({ title, category, stars, price }: ProductInfoProps) {
-  return (
-    <>
-      <div>{title}</div>
-      <div>{category}</div>
-      <div>{stars}</div>
-      <div>{price}</div>
-    </>
-  );
+function ProductInfo({ children }: ProductInfoProps) {
+  return <>{children}</>;
 }
 
 export default ProductInfo;

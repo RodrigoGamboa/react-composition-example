@@ -1,32 +1,17 @@
-import ProductButton from "./ProductButton";
-import ProductImage, { ProductImageProps } from "./ProductImage";
-import ProductInfo, { ProductInfoProps } from "./ProductInfo";
+import { ReactNode } from "react";
 
-type Props = Partial<ProductImageProps> &
-  ProductInfoProps & {
-    onAddToCart: () => void;
-  };
+type Props = {
+  image?: ReactNode;
+  info?: ReactNode;
+  action?: ReactNode;
+};
 
-function ProductCard({
-  image,
-  title,
-  category,
-  stars,
-  price,
-  onAddToCart,
-}: Props) {
+function ProductCard({ image, info, action }: Props) {
   return (
     <div className="product-card">
-      {image && <ProductImage image={image} />}
-      <ProductInfo
-        title={title}
-        category={category}
-        stars={stars}
-        price={price}
-      />
-      {onAddToCart && (
-        <ProductButton onClick={onAddToCart}>Add to Cart</ProductButton>
-      )}
+      {image}
+      {info}
+      {action}
     </div>
   );
 }
